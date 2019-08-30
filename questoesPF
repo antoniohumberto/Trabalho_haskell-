@@ -1,0 +1,109 @@
+--5)
+eliminarN::Int->[Int]->[Int]
+eliminarN n l
+ | l == [] = []
+ | n == (head l) = (tail l)
+ | otherwise = (head l):(eliminarN n (tail l))
+
+maiorF::Int->Int
+maiorF n
+ | n == 0 = f(0)
+ | otherwise = (max (f(n))(maiorF(n-1)))
+  where
+    f n
+     | n == 0 = 8
+     | n == 1 = 44
+     | n == 2 = 17
+     | n == 3 = 50
+     | n == 4 = 32
+     | n == 5 = 9
+
+removeAll::Int->[Int]->[Int]
+removeAll a l
+ | l == [] = []
+ | a == (head l) = (removeAll a (tail l))
+ | a /= (head l) = (head l):(removeAll a (tail l))
+
+
+
+inverte::[Char]->[Char]
+inverte l
+ | l == [] = []
+ | otherwise = (last l):(inverte (init l))
+
+
+unique::[Int]->[Int]
+unique l 
+ | l == [] = []
+ | (elem (head l) (tail l)) = (unique (removeAll (head l) l))
+ | otherwise = (head l):(unique (tail l))
+
+qSort::[Int]->[Int]
+qSort l
+ | l == [] = []
+ | otherwise = (qSort maior)++[pivo]++(qSort menor)
+  where
+    menor = (filter (<=(head l)) (tail l))
+    maior = (filter (>(head l)) (tail l))
+    pivo = (head l)
+
+
+    
+kSort::[Int]->[Int]
+kSort l
+ | l == [] = []
+ | otherwise = (kSort menor)++[pivo]++(kSort maior)
+  where
+    menor = (filter (<(head l)) (tail l))
+    maior = (filter (>(head l)) (tail l))
+    pivo = (head l)
+
+
+menorQ::Int->Int->Int
+menorQ x y
+ | x <= y =x
+ |otherwise = y
+
+menorL::[Int]->Int
+menorL (x:xs) 
+ | (x:xs) == [x] = x
+ | otherwise = (menorQ x (menorL xs))  
+
+
+algumF0::Int->Bool
+algumF0 n
+ |n == 0 = f(0) == 0
+ |otherwise = f(n) == 0 || algumF0 (n-1)
+  where
+    f n
+     | n == 0 = 1
+     | n == 1 = 64
+     | n == 2 = 13
+     | n == 3 = 20
+     | n == 4 = 16
+     | n == 5 = 0
+     | n == 6 = 73
+     | n == 7 = 45
+     | n == 8 = 8
+     | n == 9 = 36
+       
+
+
+algumFentre::Int->Bool
+algumFentre n
+ | (n-1) == 0 || n == 0 = False
+ | f(n-1) == True = True
+ | otherwise = (algumFentre (n-1)) || f(n-1) 
+  where
+    f n
+     | n == 1 = False
+     | n == 2 = False
+     | n == 3 = True    
+     | n == 4 = False
+
+
+mdc::Int->Int->Int
+mdc a b
+ | a == b = a
+ | a > b = (mdc (a-b) b)
+ | otherwise = mdc b a 
