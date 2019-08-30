@@ -4,7 +4,7 @@ eliminarN n l
  | l == [] = []
  | n == (head l) = (tail l)
  | otherwise = (head l):(eliminarN n (tail l))
-
+--1)
 maiorF::Int->Int
 maiorF n
  | n == 0 = f(0)
@@ -17,7 +17,7 @@ maiorF n
      | n == 3 = 50
      | n == 4 = 32
      | n == 5 = 9
-
+--6)
 removeAll::Int->[Int]->[Int]
 removeAll a l
  | l == [] = []
@@ -25,19 +25,19 @@ removeAll a l
  | a /= (head l) = (head l):(removeAll a (tail l))
 
 
-
+--7)
 inverte::[Char]->[Char]
 inverte l
  | l == [] = []
  | otherwise = (last l):(inverte (init l))
 
-
+--8)
 unique::[Int]->[Int]
 unique l 
  | l == [] = []
  | (elem (head l) (tail l)) = (unique (removeAll (head l) l))
  | otherwise = (head l):(unique (tail l))
-
+--9)
 qSort::[Int]->[Int]
 qSort l
  | l == [] = []
@@ -48,7 +48,7 @@ qSort l
     pivo = (head l)
 
 
-    
+--10)    
 kSort::[Int]->[Int]
 kSort l
  | l == [] = []
@@ -58,18 +58,18 @@ kSort l
     maior = (filter (>(head l)) (tail l))
     pivo = (head l)
 
-
+--11)
 menorQ::Int->Int->Int
 menorQ x y
  | x <= y =x
  |otherwise = y
-
+--11)
 menorL::[Int]->Int
 menorL (x:xs) 
  | (x:xs) == [x] = x
  | otherwise = (menorQ x (menorL xs))  
 
-
+--2)
 algumF0::Int->Bool
 algumF0 n
  |n == 0 = f(0) == 0
@@ -88,7 +88,7 @@ algumF0 n
      | n == 9 = 36
        
 
-
+--3)
 algumFentre::Int->Bool
 algumFentre n
  | (n-1) == 0 || n == 0 = False
@@ -101,7 +101,7 @@ algumFentre n
      | n == 3 = True    
      | n == 4 = False
 
-
+--12)
 mdc::Int->Int->Int
 mdc a b
  | a == b = a
